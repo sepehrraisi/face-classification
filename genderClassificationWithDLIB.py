@@ -57,7 +57,7 @@ while True:
         points = shapePoints(shape)
         (x, y, w, h) = rectPoints(rect)
         resized = frame[y-20: y+h+30, x-10:x+w+10]
-        cv2.imshow("resized: ", resized)
+        # cv2.imshow("resized: ", resized)
         try:
             frame_resize = cv2.resize(resized, genderTargetSize)
         except:

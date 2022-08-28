@@ -32,9 +32,9 @@ def rectPoints(rect):
 
 
 # pre-trained model
-modelFile = "models/dnn/res10_300x300_ssd_iter_140000.caffemodel" 
+modelFile = "models/dnn/res10_300x300_ssd_iter_140000.caffemodel"
 # prototxt has the information of where the training data is located.
-configFile = "models/dnn/deploy.prototxt" 
+configFile = "models/dnn/deploy.prototxt.txt"
 net = cv2.dnn.readNetFromCaffe(configFile, modelFile)
 
 def detectFacesWithDNN(frame):

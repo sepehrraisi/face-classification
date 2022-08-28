@@ -21,7 +21,7 @@ genders = {
 # pre-trained model
 modelFile = "faceDetection/models/dnn/res10_300x300_ssd_iter_140000.caffemodel"
 # prototxt has the information of where the training data is located.
-configFile = "faceDetection/models/dnn/deploy.prototxt"
+configFile = "faceDetection/models/dnn/deploy.prototxt.txt"
 net = cv2.dnn.readNetFromCaffe(configFile, modelFile)
 
 

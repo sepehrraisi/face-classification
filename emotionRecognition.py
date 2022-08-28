@@ -76,11 +76,11 @@ if args["isVideoWriter"] == True:
 
 while True:
     ret, frame = cap.read()
-    frame = cv2.resize(frame, (720, 480))
 
     if not ret:
         break
 
+    frame = cv2.resize(frame, (720, 480))
     grayFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     rects = detector(grayFrame, 0)
     for rect in rects:
