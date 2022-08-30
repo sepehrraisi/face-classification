@@ -112,6 +112,7 @@ while True:
             cv2.putText(frame, emotions[emotion_label_arg]['emotion'],
                         (x + 25, y + h + 36), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
                         (255, 255, 255), 1, cv2.LINE_AA)
+            print(emotions[emotion_label_arg]['emotion'])
         else:
             color = (255, 255, 255)
             cv2.rectangle(frame, (x, y), (x + w, y + h), color, 2)
@@ -119,10 +120,10 @@ while True:
     if args["isVideoWriter"] == True:
         videoWrite.write(frame)
 
-    cv2.imshow("Emotion Recognition", frame)
-    k = cv2.waitKey(1) & 0xFF
-    if k == 27:
-        break
+    # cv2.imshow("Emotion Recognition", frame)
+    # k = cv2.waitKey(1) & 0xFF
+    # if k == 27:
+    #     break
 
 cap.release()
 if args["isVideoWriter"] == True:
