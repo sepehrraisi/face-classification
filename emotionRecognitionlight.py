@@ -4,6 +4,7 @@ import numpy as np
 import argparse
 import dlib
 import cv2
+from playsound import playsound
 
 emotion_offsets = (20, 40)
 emotions = {
@@ -91,6 +92,10 @@ while True:
         if (emotion_probability > 0.36):
             emotion_label_arg = np.argmax(emotion_prediction)
             print(emotions[emotion_label_arg]['emotion'])
+            print(emotion_label_arg)
+            if emotion_label_arg == 3:
+                playsound('NiceSmile.mp3')
+                
 
 cap.release()
 cv2.destroyAllWindows()
