@@ -64,8 +64,8 @@ emotionTargetSize = emotionClassifier.input_shape[1:3]
 
 cap = cv2.VideoCapture(0)
 counter = 0
-emotion_label_arg = 0
 while True:
+    emotion_label_arg = 0
     ret, frame = cap.read()
 
     if not ret:
@@ -100,11 +100,11 @@ while True:
                 print("Khandidi")
         if x > -10000:
             counter += 1
-        if counter == 6 and emotion_label_arg != 3:
+        if counter == 3 and emotion_label_arg != 3:
             print("bekhand")
             counter = 0
             playsound('bekhand.mp3')
-        if counter == 6:
+        if counter == 3:
             counter = 0
 cap.release()
 cv2.destroyAllWindows()
