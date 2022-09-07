@@ -120,10 +120,10 @@ while True:
     if args["isVideoWriter"] == True:
         videoWrite.write(frame)
 
-    # cv2.imshow("Emotion Recognition", frame)
-    # k = cv2.waitKey(1) & 0xFF
-    # if k == 27:
-    #     break
+    cv2.imshow("Emotion Recognition", frame)
+    k = cv2.waitKey(1) & 0xFF
+    if k == 27:
+        break
 
 cap.release()
 if args["isVideoWriter"] == True:
