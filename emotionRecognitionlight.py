@@ -106,7 +106,7 @@ while True:
             if emotion_label_arg == 3:
                 playsound('ghashang.mp3')
                 print("Khandidi")
-        if counter == 5 and emotion_label_arg != 3:
+        if counter == 5:
             print("bekhand")
             counter = 0
             playsound('bekhand.mp3')
