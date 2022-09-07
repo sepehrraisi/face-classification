@@ -99,14 +99,13 @@ while True:
         emotion_prediction = emotionClassifier.predict(grayFace)
         emotion_probability = np.max(emotion_prediction)
         if (emotion_probability > 0.36):
+            counter += 1
             emotion_label_arg = np.argmax(emotion_prediction)
             print(emotions[emotion_label_arg]['emotion'])
-            print(emotion_label_arg)
+            # print(emotion_label_arg)
             if emotion_label_arg == 3:
                 playsound('ghashang.mp3')
                 print("Khandidi")
-        if x > -10000:
-            counter += 1
         if counter == 5 and emotion_label_arg != 3:
             print("bekhand")
             counter = 0
