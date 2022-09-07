@@ -69,7 +69,7 @@ count = 0
 while True:
     count += 1
     if count == 2:
-        time.sleep(2)
+        time.sleep(1)
         count = 0
 
     emotion_label_arg = 0
@@ -106,11 +106,11 @@ while True:
             if emotion_label_arg == 3:
                 playsound('ghashang.mp3')
                 print("Khandidi")
-        if counter == 5:
+        if counter == 5 and emotion_label_arg != 3:
             print("bekhand")
             counter = 0
             playsound('bekhand.mp3')
-        if counter == 3:
+        if counter == 5:
             counter = 0
 cap.release()
 cv2.destroyAllWindows()
