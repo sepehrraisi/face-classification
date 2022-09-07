@@ -5,6 +5,7 @@ import argparse
 import dlib
 import cv2
 from playsound import playsound
+import time
 
 emotion_offsets = (20, 40)
 emotions = {
@@ -64,7 +65,13 @@ emotionTargetSize = emotionClassifier.input_shape[1:3]
 
 cap = cv2.VideoCapture(0)
 counter = 0
+count = 0
 while True:
+    count += 1
+    if count == 2:
+        time.sleep(2)
+        count = 0
+
     emotion_label_arg = 0
     ret, frame = cap.read()
 
