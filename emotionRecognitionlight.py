@@ -63,7 +63,11 @@ emotionModelPath = 'models/emotionModel.hdf5'  # fer2013_mini_XCEPTION.110-0.65
 emotionClassifier = load_model(emotionModelPath, compile=False)
 emotionTargetSize = emotionClassifier.input_shape[1:3]
 
+
 cap = cv2.VideoCapture(0)
+cap.set(cv2.CAP_PROP_BUFFERSIZE, 1);
+cap.set(cv2.CAP_PROP_FPS, 1);
+cap.set(cv2.CAP_PROP_POS_FRAMES , 1);
 counter = 0
 count = 0
 frame_rate = 1
