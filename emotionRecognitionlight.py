@@ -65,7 +65,7 @@ emotionTargetSize = emotionClassifier.input_shape[1:3]
 
 
 cap = cv2.VideoCapture(0)
-cap.set(cv2.CAP_PROP_BUFFERSIZE, 1);
+cap.set(cv2.CAP_PROP_BUFFERSIZE, 0);
 cap.set(cv2.CAP_PROP_FPS, 1);
 cap.set(cv2.CAP_PROP_POS_FRAMES , 1);
 counter = 0
