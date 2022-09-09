@@ -74,9 +74,6 @@ frame_rate = 1
 prev = 0
 happy = False
 while True:
-    if happy:
-        happy = False
-        continue
     emotion_label_arg = 0
     emotion_prediction = 0
 
@@ -86,7 +83,9 @@ while True:
     #     count = 0
     time_elapsed = time.time() - prev
     ret, frame = cap.read()
-
+    if happy:
+        happy = False
+        continue
     if time_elapsed > 1. / frame_rate:
         prev = time.time()
 
