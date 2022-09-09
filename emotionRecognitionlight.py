@@ -65,7 +65,7 @@ emotionTargetSize = emotionClassifier.input_shape[1:3]
 
 
 cap = cv2.VideoCapture(0)
-cap.set(cv2.CAP_PROP_BUFFERSIZE, 0);
+cap.set(cv2.CAP_PROP_BUFFERSIZE, 1);
 cap.set(cv2.CAP_PROP_FPS, 1);
 cap.set(cv2.CAP_PROP_POS_FRAMES , 1);
 counter = 0
@@ -73,6 +73,9 @@ count = 0
 frame_rate = 1
 prev = 0
 while True:
+    if happy:
+        happy = False
+        continue
     emotion_label_arg = 0
     emotion_prediction = 0
 
@@ -123,6 +126,7 @@ while True:
                     counter = 0
                     playsound('ghashang.mp3')
                     print("Khandidi")
+                    happy = True
                     time.sleep(3)
             if emotion_label_arg != 3:
                 counter += 1
