@@ -72,6 +72,7 @@ counter = 0
 count = 0
 frame_rate = 1
 prev = 0
+happy = False
 while True:
     if happy:
         happy = False
