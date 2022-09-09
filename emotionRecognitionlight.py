@@ -119,6 +119,7 @@ while True:
                     counter = 0
                     playsound('ghashang.mp3')
                     print("Khandidi")
+                    time.sleep(3)
             if emotion_label_arg != 3:
                 counter += 1
                 if counter >= 5:
