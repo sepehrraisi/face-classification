@@ -70,6 +70,8 @@ frame_rate = 1
 prev = 0
 while True:
     emotion_label_arg = 0
+    emotion_prediction = 0
+
     # count += 1
     # if count == 2:
     #     time.sleep(1)
