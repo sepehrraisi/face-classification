@@ -66,51 +66,67 @@ emotionTargetSize = emotionClassifier.input_shape[1:3]
 cap = cv2.VideoCapture(0)
 counter = 0
 count = 0
+frame_rate = 1
+prev = 0
 while True:
-    count += 1
-    if count == 2:
-        time.sleep(1)
-        count = 0
-
     emotion_label_arg = 0
+    # count += 1
+    # if count == 2:
+    #     time.sleep(1)
+    #     count = 0
+    time_elapsed = time.time() - prev
     ret, frame = cap.read()
 
-    if not ret:
-        break
+    if time_elapsed > 1. / frame_rate:
+        prev = time.time()
 
-    frame = cv2.resize(frame, (720, 480))
-    grayFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    rects = detector(grayFrame, 0)
-    for rect in rects:
-        shape = predictor(grayFrame, rect)
-        points = shapePoints(shape)
-        (x, y, w, h) = rectPoints(rect)
-        grayFace = grayFrame[y:y + h, x:x + w]
-        try:
-            grayFace = cv2.resize(grayFace, (emotionTargetSize))
-        except:
-            continue
+        if not ret:
+            break
 
-        grayFace = grayFace.astype('float32')
-        grayFace = grayFace / 255.0
-        grayFace = (grayFace - 0.5) * 2.0
-        grayFace = np.expand_dims(grayFace, 0)
-        grayFace = np.expand_dims(grayFace, -1)
-        emotion_prediction = emotionClassifier.predict(grayFace)
-        emotion_probability = np.max(emotion_prediction)
-        if (emotion_probability > 0.36):
-            counter += 1
-            emotion_label_arg = np.argmax(emotion_prediction)
-            print(emotions[emotion_label_arg]['emotion'])
-            # print(emotion_label_arg)
-            if emotion_label_arg == 3:
-                playsound('ghashang.mp3')
-                print("Khandidi")
-        if counter == 5 and emotion_label_arg != 3:
-            print("bekhand")
-            counter = 0
-            playsound('bekhand.mp3')
-        if counter == 5:
-            counter = 0
+        scale_percent = 50  # percent of original size
+        width = int(frame.shape[1] * scale_percent / 100)
+        height = int(frame.shape[0] * scale_percent / 100)
+        dim = (width, height)
+
+        # frame = cv2.resize(frame, (720, 480))
+        frame = cv2.resize(frame, dim)
+        grayFrame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+        rects = detector(grayFrame, 0)
+        for rect in rects:
+            shape = predictor(grayFrame, rect)
+            points = shapePoints(shape)
+            (x, y, w, h) = rectPoints(rect)
+            grayFace = grayFrame[y:y + h, x:x + w]
+            try:
+                grayFace = cv2.resize(grayFace, (emotionTargetSize))
+            except:
+                continue
+
+            grayFace = grayFace.astype('float32')
+            grayFace = grayFace / 255.0
+            grayFace = (grayFace - 0.5) * 2.0
+            grayFace = np.expand_dims(grayFace, 0)
+            grayFace = np.expand_dims(grayFace, -1)
+            emotion_prediction = emotionClassifier.predict(grayFace)
+            emotion_probability = np.max(emotion_prediction)
+            if (emotion_probability > 0.36):
+                emotion_label_arg = np.argmax(emotion_prediction)
+                print(emotions[emotion_label_arg]['emotion'])
+                print(emotion_label_arg)
+                if emotion_label_arg == 3:
+                    counter = 0
+                    playsound('ghashang.mp3')
+                    print("Khandidi")
+            if emotion_label_arg != 3:
+                counter += 1
+                if counter >= 5:
+                    print("bekhand")
+                    counter = 0
+                    playsound('bekhand.mp3')
+
+            # cv2.imshow("Emotion Recognition", frame)
+            # k = cv2.waitKey(1) & 0xFF
+            # if k == 27:
+            #     break
 cap.release()
 cv2.destroyAllWindows()
