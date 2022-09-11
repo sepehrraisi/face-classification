@@ -124,16 +124,19 @@ def normal():
     msg = "Normal"
     print(msg)
     show_message(device, msg, fill="white")
+    time.sleep(0.1)
 
 def smile():
     msg = "Smile"
     print(msg)
     show_message(device, msg, fill="white")
+    time.sleep(0.1)
 
 def sad():
     msg = "Sad"
     print(msg)
     show_message(device, msg, fill="white")
+    time.sleep(0.1)
 
 
 # if __name__ == "__main__":
