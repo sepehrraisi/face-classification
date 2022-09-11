@@ -63,6 +63,9 @@ def demo(n, block_orientation, rotate, inreverse):
     # print(msg)
     # show_message(device, msg, fill="white")
 
+    with canvas(device) as draw:
+        draw.rectangle(device.bounding_box, outline="white")
+
     time.sleep(1)
     with canvas(device) as draw:
         text(draw, (0, 0), "----", fill="white")
