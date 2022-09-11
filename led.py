@@ -28,36 +28,36 @@ def demo(n, block_orientation, rotate, inreverse):
     show_message(device, msg, fill="white", font=proportional(CP437_FONT))
     time.sleep(1)
 
-    msg = "Fast scrolling: Lorem ipsum dolor sit amet, consectetur adipiscing\
-    elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut\
-    enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\
-    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\
-    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint\
-    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit\
-    anim id est laborum."
-    msg = re.sub(" +", " ", msg)
-    print(msg)
-    show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0)
+    # msg = "Fast scrolling: Lorem ipsum dolor sit amet, consectetur adipiscing\
+    # elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut\
+    # enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\
+    # aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in\
+    # voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint\
+    # occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit\
+    # anim id est laborum."
+    # msg = re.sub(" +", " ", msg)
+    # print(msg)
+    # show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0)
 
     msg = "Slow scrolling: The quick brown fox jumps over the lazy dog"
     print(msg)
     show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.1)
 
-    print("Vertical scrolling")
-    words = [
-        "Victor", "Echo", "Romeo", "Tango", "India", "Charlie", "Alpha",
-        "Lima", " ", "Sierra", "Charlie", "Romeo", "Oscar", "Lima", "Lima",
-        "India", "November", "Golf", " "
-    ]
-
-    virtual = viewport(device, width=device.width, height=len(words) * 8)
-    with canvas(virtual) as draw:
-        for i, word in enumerate(words):
-            text(draw, (0, i * 8), word, fill="white", font=proportional(CP437_FONT))
-
-    for i in range(virtual.height - device.height):
-        virtual.set_position((0, i))
-        time.sleep(0.05)
+    # print("Vertical scrolling")
+    # words = [
+    #     "Victor", "Echo", "Romeo", "Tango", "India", "Charlie", "Alpha",
+    #     "Lima", " ", "Sierra", "Charlie", "Romeo", "Oscar", "Lima", "Lima",
+    #     "India", "November", "Golf", " "
+    # ]
+    #
+    # virtual = viewport(device, width=device.width, height=len(words) * 8)
+    # with canvas(virtual) as draw:
+    #     for i, word in enumerate(words):
+    #         text(draw, (0, i * 8), word, fill="white", font=proportional(CP437_FONT))
+    #
+    # for i in range(virtual.height - device.height):
+    #     virtual.set_position((0, i))
+    #     time.sleep(0.05)
 
     msg = "Brightness"
     print(msg)
