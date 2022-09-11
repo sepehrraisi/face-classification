@@ -6,7 +6,7 @@ import dlib
 import cv2
 from playsound import playsound
 import time
-import led
+from led import smile, normal, sad
 
 emotion_offsets = (20, 40)
 emotions = {
@@ -74,8 +74,12 @@ count = 0
 frame_rate = 1
 prev = 0
 happy = False
+
+
+
+
+
 while True:
-    led.normal()
     emotion_label_arg = 0
     emotion_prediction = 0
 
@@ -90,6 +94,7 @@ while True:
         continue
     if time_elapsed > 1. / frame_rate:
         prev = time.time()
+        normal()
 
         if not ret:
             break
@@ -126,7 +131,7 @@ while True:
                 print(emotion_label_arg)
                 if emotion_label_arg == 3:
                     counter = 0
-                    led.smile()
+                    smile()
                     playsound('ghashang.mp3')
                     print("Khandidi")
                     happy = True
@@ -136,7 +141,7 @@ while True:
                 if counter >= 5:
                     print("bekhand")
                     counter = 0
-                    led.sad()
+                    sad()
                     playsound('bekhand.mp3')
 
             # cv2.imshow("Emotion Recognition", frame)

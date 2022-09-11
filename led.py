@@ -118,25 +118,19 @@ from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_
 serial = spi(port=0, device=0, gpio=noop())
 device = max7219(serial, cascaded=2, block_orientation=-90,
                      rotate=0, blocks_arranged_in_reverse_order=False)
-
+device.contrast(8)
 
 def normal():
-    device.contrast(8)
-    print("Created device")
     msg = "Normal"
     print(msg)
     show_message(device, msg, fill="white")
 
 def smile():
-    device.contrast(8)
-    print("Created device")
     msg = "Smile"
     print(msg)
     show_message(device, msg, fill="white")
 
 def sad():
-    device.contrast(8)
-    print("Created device")
     msg = "Sad"
     print(msg)
     show_message(device, msg, fill="white")
