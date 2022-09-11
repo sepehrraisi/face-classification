@@ -24,7 +24,7 @@ def demo(n, block_orientation, rotate, inreverse):
 
 
     with canvas(device) as draw:
-        text(draw, (5, 5), "---", fill="white")
+        text(draw, (0, 0), "---", fill="white")
     # # start demo
     # msg = "MAX7219 LED Matrix Demo"
     # print(msg)
