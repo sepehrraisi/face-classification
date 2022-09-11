@@ -115,12 +115,12 @@ from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_
     #     with canvas(device) as draw:
     #         text(draw, (0, 0), chr(x), fill="white")
     #         time.sleep(0.1)
+serial = spi(port=0, device=0, gpio=noop())
+device = max7219(serial, cascaded=2, block_orientation=-90,
+                     rotate=0, blocks_arranged_in_reverse_order=False)
 
 
 def normal():
-    serial = spi(port=0, device=0, gpio=noop())
-    device = max7219(serial, cascaded=2, block_orientation=-90,
-                     rotate=0, blocks_arranged_in_reverse_order=False)
     device.contrast(8)
     print("Created device")
     msg = "Normal"
@@ -128,9 +128,6 @@ def normal():
     show_message(device, msg, fill="white")
 
 def smile():
-    serial = spi(port=0, device=0, gpio=noop())
-    device = max7219(serial, cascaded=2, block_orientation=-90,
-                     rotate=0, blocks_arranged_in_reverse_order=False)
     device.contrast(8)
     print("Created device")
     msg = "Smile"
@@ -138,9 +135,6 @@ def smile():
     show_message(device, msg, fill="white")
 
 def sad():
-    serial = spi(port=0, device=0, gpio=noop())
-    device = max7219(serial, cascaded=2, block_orientation=-90,
-                     rotate=0, blocks_arranged_in_reverse_order=False)
     device.contrast(8)
     print("Created device")
     msg = "Sad"
