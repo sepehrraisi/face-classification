@@ -22,12 +22,15 @@ def demo(n, block_orientation, rotate, inreverse):
                      rotate=rotate or 0, blocks_arranged_in_reverse_order=inreverse)
     print("Created device")
 
-    # start demo
-    msg = "---"
-    print(msg)
-    show_message(device, msg, fill="white", font=proportional(CP437_FONT))
-    time.sleep(1)
 
+    with canvas(device) as draw:
+        text(draw, (5, 5), "---", fill="white")
+    # # start demo
+    # msg = "MAX7219 LED Matrix Demo"
+    # print(msg)
+    # show_message(device, msg, fill="white", font=proportional(CP437_FONT))
+    # time.sleep(1)
+    #
     # msg = "Fast scrolling: Lorem ipsum dolor sit amet, consectetur adipiscing\
     # elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut\
     # enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\
