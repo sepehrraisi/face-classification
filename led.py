@@ -68,7 +68,7 @@ def demo(n, block_orientation, rotate, inreverse):
 
     time.sleep(1)
     with canvas(device) as draw:
-        text(draw, (0, 0), "----", fill="white")
+        draw.rectangle(device.bounding_box, outline="white")
 
     time.sleep(1)
     for _ in range(5):
