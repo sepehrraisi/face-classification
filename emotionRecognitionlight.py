@@ -94,7 +94,6 @@ while True:
         continue
     if time_elapsed > 1. / frame_rate:
         prev = time.time()
-        normal()
 
         if not ret:
             break
@@ -126,6 +125,7 @@ while True:
             emotion_prediction = emotionClassifier.predict(grayFace)
             emotion_probability = np.max(emotion_prediction)
             if (emotion_probability > 0.36):
+                normal()
                 emotion_label_arg = np.argmax(emotion_prediction)
                 print(emotions[emotion_label_arg]['emotion'])
                 print(emotion_label_arg)
