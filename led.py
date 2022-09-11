@@ -22,12 +22,12 @@ def demo(n, block_orientation, rotate, inreverse):
                      rotate=rotate or 0, blocks_arranged_in_reverse_order=inreverse)
     print("Created device")
 
-    # start demo
-    msg = "MAX7219 LED Matrix Demo"
-    print(msg)
-    show_message(device, msg, fill="white", font=proportional(CP437_FONT))
-    time.sleep(1)
-
+    # # start demo
+    # msg = "MAX7219 LED Matrix Demo"
+    # print(msg)
+    # show_message(device, msg, fill="white", font=proportional(CP437_FONT))
+    # time.sleep(1)
+    #
     # msg = "Fast scrolling: Lorem ipsum dolor sit amet, consectetur adipiscing\
     # elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut\
     # enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut\
@@ -39,11 +39,11 @@ def demo(n, block_orientation, rotate, inreverse):
     # print(msg)
     # show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0)
 
-    msg = "Slow scrolling: The quick brown fox jumps over the lazy dog"
-    print(msg)
-    show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.1)
-
-    # print("Vertical scrolling")
+    # msg = "Slow scrolling: The quick brown fox jumps over the lazy dog"
+    # print(msg)
+    # show_message(device, msg, fill="white", font=proportional(LCD_FONT), scroll_delay=0.1)
+    #
+    # # print("Vertical scrolling")
     # words = [
     #     "Victor", "Echo", "Romeo", "Tango", "India", "Charlie", "Alpha",
     #     "Lima", " ", "Sierra", "Charlie", "Romeo", "Oscar", "Lima", "Lima",
@@ -58,14 +58,14 @@ def demo(n, block_orientation, rotate, inreverse):
     # for i in range(virtual.height - device.height):
     #     virtual.set_position((0, i))
     #     time.sleep(0.05)
-
-    msg = "Brightness"
-    print(msg)
-    show_message(device, msg, fill="white")
+    #
+    # msg = "Brightness"
+    # print(msg)
+    # show_message(device, msg, fill="white")
 
     time.sleep(1)
     with canvas(device) as draw:
-        text(draw, (0, 0), "Sepehr", fill="white")
+        text(draw, (0, 0), "----", fill="white")
 
     time.sleep(1)
     for _ in range(5):
@@ -76,35 +76,35 @@ def demo(n, block_orientation, rotate, inreverse):
     device.contrast(0x80)
     time.sleep(1)
 
-    msg = "Alternative font!"
-    print(msg)
-    show_message(device, msg, fill="white", font=SINCLAIR_FONT)
-
-    time.sleep(1)
-    msg = "Proportional font - characters are squeezed together!"
-    print(msg)
-    show_message(device, msg, fill="white", font=proportional(SINCLAIR_FONT))
-
-    # http://www.squaregear.net/fonts/tiny.shtml
-    time.sleep(1)
-    msg = "Tiny is, I believe, the smallest possible font \
-    (in pixel size). It stands at a lofty four pixels \
-    tall (five if you count descenders), yet it still \
-    contains all the printable ASCII characters."
-    msg = re.sub(" +", " ", msg)
-    print(msg)
-    show_message(device, msg, fill="white", font=proportional(TINY_FONT))
-
-    time.sleep(1)
-    msg = "CP437 Characters"
-    print(msg)
-    show_message(device, msg)
-
-    time.sleep(1)
-    for x in range(256):
-        with canvas(device) as draw:
-            text(draw, (0, 0), chr(x), fill="white")
-            time.sleep(0.1)
+    # msg = "Alternative font!"
+    # print(msg)
+    # show_message(device, msg, fill="white", font=SINCLAIR_FONT)
+    #
+    # time.sleep(1)
+    # msg = "Proportional font - characters are squeezed together!"
+    # print(msg)
+    # show_message(device, msg, fill="white", font=proportional(SINCLAIR_FONT))
+    #
+    # # http://www.squaregear.net/fonts/tiny.shtml
+    # time.sleep(1)
+    # msg = "Tiny is, I believe, the smallest possible font \
+    # (in pixel size). It stands at a lofty four pixels \
+    # tall (five if you count descenders), yet it still \
+    # contains all the printable ASCII characters."
+    # msg = re.sub(" +", " ", msg)
+    # print(msg)
+    # show_message(device, msg, fill="white", font=proportional(TINY_FONT))
+    #
+    # time.sleep(1)
+    # msg = "CP437 Characters"
+    # print(msg)
+    # show_message(device, msg)
+    #
+    # time.sleep(1)
+    # for x in range(256):
+    #     with canvas(device) as draw:
+    #         text(draw, (0, 0), chr(x), fill="white")
+    #         time.sleep(0.1)
 
 
 if __name__ == "__main__":
