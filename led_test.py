@@ -17,9 +17,9 @@ with canvas(device) as draw:
     with canvas(device) as draw:
         draw.rectangle((0, 3, 15, 4), fill="white", width=1)
 for _ in range(2):
-        for intensity in range(16):
-            device.contrast(intensity * 16)
-            time.sleep(0.1)
+    for intensity in range(16):
+        device.contrast(intensity * 16)
+        time.sleep(0.1)
 
 with canvas(device) as draw:
     draw.arc((0, 0, 15, 7), -10, 200, fill="white", width=2)
