@@ -13,16 +13,16 @@ serial = spi(port=0, device=0, gpio=noop())
 device = max7219(serial, cascaded=2, block_orientation=-90,
                  rotate=0, blocks_arranged_in_reverse_order=False)
 
-# with canvas(device) as draw:
-#     draw.arc(device.bounding_box, -10, 200, fill="white", width=2)
-#
-# for _ in range(2):
-#     for intensity in range(16):
-#         device.contrast(intensity * 16)
-#         time.sleep(0.1)
+with canvas(device) as draw:
+    draw.arc(device.bounding_box, -20, 190, fill="white", width=2)
+
+for _ in range(2):
+    for intensity in range(16):
+        device.contrast(intensity * 16)
+        time.sleep(0.1)
 
 with canvas(device) as draw:
-    draw.arc((0, 2, 15, 7), 160, 20, fill="white", width=2)
+    draw.arc((0, 2, 15, 7), 170, 10, fill="white", width=2)
     print(device.bounding_box)
 
 for _ in range(2):
