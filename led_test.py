@@ -24,6 +24,7 @@ device = max7219(serial, cascaded=2, block_orientation=-90,
 
 with canvas(device) as draw:
     draw.arc(device.bounding_box, 160, 10, fill="white", width=2)
+    print(device.bounding_box)
 
 for _ in range(2):
     for intensity in range(16):
