@@ -23,7 +23,7 @@ for _ in range(2):
         time.sleep(0.1)
 
 with canvas(device) as draw:
-    draw.arc(device.bounding_box, 91, 10, fill="white", width=2)
+    draw.arc(device.bounding_box, 50, 10, fill="white", width=2)
 
 for _ in range(2):
     for intensity in range(16):
