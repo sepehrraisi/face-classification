@@ -13,15 +13,9 @@ serial = spi(port=0, device=0, gpio=noop())
 device = max7219(serial, cascaded=2, block_orientation=-90,
                      rotate=0, blocks_arranged_in_reverse_order=False)
 
-with canvas(device) as draw:
-    draw.rectangle(device.bounding_box, outline="white")
-    text(draw, (2, 2), "Hello", fill="white", font=proportional(LCD_FONT))
-    text(draw, (2, 10), "World", fill="white", font=proportional(LCD_FONT))
-    time.sleep(2)
-
 
 with canvas(device) as draw:
-    draw.arc(device.bounding_box, 0, 128, fill="white")
+    draw.arc(device.bounding_box, -10, 128, fill="white", width=2)
 
 for _ in range(5):
     for intensity in range(16):
