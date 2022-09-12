@@ -30,6 +30,13 @@ for _ in range(2):
         device.contrast(intensity * 16)
         time.sleep(0.1)
 
+with canvas(device) as draw:
+    draw.arc((0, 2, 15, 9), 170, 9, fill="white", width=2)
+
+while True:
+    print("10")
+    time.sleep(2)
+
 # with canvas(device) as draw:
 #     draw.line(device.bounding_box, fill="white", width=2)
 #
