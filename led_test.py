@@ -31,7 +31,7 @@ device = max7219(serial, cascaded=2, block_orientation=-90,
 #         time.sleep(0.1)
 
 with canvas(device) as draw:
-    draw.line((0, 4, 15, 2), fill="white", width=2)
+    draw.line((0, 4, 15, 2), fill="white", width=4)
 for _ in range(2):
     for intensity in range(16):
         device.contrast(intensity * 16)
