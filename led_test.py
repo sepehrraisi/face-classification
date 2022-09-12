@@ -12,12 +12,12 @@ from luma.core.legacy.font import proportional, CP437_FONT, TINY_FONT, SINCLAIR_
 serial = spi(port=0, device=0, gpio=noop())
 device = max7219(serial, cascaded=2, block_orientation=-90,
                      rotate=0, blocks_arranged_in_reverse_order=False)
-device.contrast(8 * 16)
+
 with canvas(device) as draw:
     draw.rounded_rectangle(device.bounding_box, outline="white")
     time.sleep(2)
 
-device.contrast(15 * 16)
-with canvas(device) as draw:
-    draw.rounded_rectangle(device.bounding_box, outline="white")
-    time.sleep(2)
+for _ in range(5):
+    for intensity in range(16):
+        device.contrast(intensity * 16)
+        time.sleep(0.1)
