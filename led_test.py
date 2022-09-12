@@ -14,7 +14,7 @@ device = max7219(serial, cascaded=2, block_orientation=-90,
                      rotate=0, blocks_arranged_in_reverse_order=False)
 
 with canvas(device) as draw:
-    draw.arc(device.bounding_box, outline="white")
+    draw.arc(device.bounding_box)
 
 for _ in range(5):
     for intensity in range(16):
@@ -22,14 +22,14 @@ for _ in range(5):
         time.sleep(0.1)
 
 with canvas(device) as draw:
-    draw.bitmap(device.bounding_box, outline="white")
+    draw.bitmap(device.bounding_box)
 
 for _ in range(5):
     for intensity in range(16):
         device.contrast(intensity * 16)
         time.sleep(0.1)
 with canvas(device) as draw:
-    draw.chord(device.bounding_box, outline="white")
+    draw.chord(device.bounding_box)
 
 for _ in range(5):
     for intensity in range(16):
@@ -37,14 +37,14 @@ for _ in range(5):
         time.sleep(0.1)
 
 with canvas(device) as draw:
-    draw.ellipse(device.bounding_box, outline="white")
+    draw.ellipse(device.bounding_box)
 
 for _ in range(5):
     for intensity in range(16):
         device.contrast(intensity * 16)
         time.sleep(0.1)
 with canvas(device) as draw:
-    draw.line(device.bounding_box, outline="white")
+    draw.line(device.bounding_box)
 
 for _ in range(5):
     for intensity in range(16):
