@@ -15,7 +15,12 @@ device = max7219(serial, cascaded=2, block_orientation=-90,
 
 def normal():
     with canvas(device) as draw:
-        draw.arc((0, 2, 15, 9), 170, 9, fill="white", width=2)
+        draw.rectangle((0, 3, 15, 4), fill="white", width=1)
+    for _ in range(2):
+        for intensity in range(16):
+            device.contrast(intensity * 16)
+            time.sleep(0.1)
+
 
 def smile():
     with canvas(device) as draw:
