@@ -15,9 +15,9 @@ device = max7219(serial, cascaded=2, block_orientation=-90,
 device.contrast(8 * 16)
 with canvas(device) as draw:
     draw.rounded_rectangle(device.bounding_box, outline="white")
-    time.sleep(0.5)
+    time.sleep(2)
 
 device.contrast(15 * 16)
 with canvas(device) as draw:
     draw.rounded_rectangle(device.bounding_box, outline="white")
-    time.sleep(0.5)
+    time.sleep(2)
