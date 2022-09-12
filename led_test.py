@@ -31,7 +31,7 @@ device = max7219(serial, cascaded=2, block_orientation=-90,
 #         time.sleep(0.1)
 
 with canvas(device) as draw:
-    draw.rectangle((0, 7, 15, 1), fill="white", width=1)
+    draw.rectangle((2, 7, 15, 1), fill="white", width=1)
 for _ in range(2):
     for intensity in range(16):
         device.contrast(intensity * 16)
