@@ -31,4 +31,4 @@ device = max7219(serial, cascaded=2, block_orientation=-90,
 #         time.sleep(0.1)
 
 with canvas(device) as draw:
-    draw.arc((0, 2, 15, 9), 170, 9, fill="white", width=2)
+    draw.line(device.bounding_box, fill="white", width=2)
