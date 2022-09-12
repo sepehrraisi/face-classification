@@ -23,14 +23,7 @@ for _ in range(5):
         time.sleep(0.1)
 
 with canvas(device) as draw:
-    draw.bitmap(device.bounding_box)
-
-for _ in range(5):
-    for intensity in range(16):
-        device.contrast(intensity * 16)
-        time.sleep(0.1)
-with canvas(device) as draw:
-    draw.chord(device.bounding_box)
+    draw.arc(device.bounding_box, -200, 10, fill="white", width=2)
 
 for _ in range(5):
     for intensity in range(16):
@@ -38,30 +31,7 @@ for _ in range(5):
         time.sleep(0.1)
 
 with canvas(device) as draw:
-    draw.ellipse(device.bounding_box)
-
-for _ in range(5):
-    for intensity in range(16):
-        device.contrast(intensity * 16)
-        time.sleep(0.1)
-with canvas(device) as draw:
-    draw.line(device.bounding_box)
-
-for _ in range(5):
-    for intensity in range(16):
-        device.contrast(intensity * 16)
-        time.sleep(0.1)
-
-with canvas(device) as draw:
-    draw.shape(device.bounding_box, outline="white")
-
-for _ in range(5):
-    for intensity in range(16):
-        device.contrast(intensity * 16)
-        time.sleep(0.1)
-
-with canvas(device) as draw:
-    draw.pieslice(device.bounding_box, outline="white")
+    draw.line(device.bounding_box, fill="white", width=2)
 
 for _ in range(5):
     for intensity in range(16):
