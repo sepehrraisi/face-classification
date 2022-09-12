@@ -17,7 +17,7 @@ with canvas(device) as draw:
     draw.rounded_rectangle(device.bounding_box, outline="white")
     time.sleep(0.5)
 
-device.contrast(16 * 16)
+device.contrast(15 * 16)
 with canvas(device) as draw:
     draw.rounded_rectangle(device.bounding_box, outline="white")
     time.sleep(0.5)
