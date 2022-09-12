@@ -13,7 +13,11 @@ serial = spi(port=0, device=0, gpio=noop())
 device = max7219(serial, cascaded=2, block_orientation=-90,
                      rotate=0, blocks_arranged_in_reverse_order=False)
 device.contrast(8 * 16)
-draw.rounded_rectangle(device.bounding_box, outline="white")
-time.sleep(0.5)
+with canvas(device) as draw:
+    draw.rounded_rectangle(device.bounding_box, outline="white")
+    time.sleep(0.5)
+
 device.contrast(16 * 16)
-draw.rounded_rectangle(device.bounding_box, outline="white")
+with canvas(device) as draw:
+    draw.rounded_rectangle(device.bounding_box, outline="white")
+    time.sleep(0.5)
