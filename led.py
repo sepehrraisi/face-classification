@@ -16,7 +16,7 @@ def normal():
             time.sleep(0.1)
 
 
-def smile():
+def sad():
     with canvas(device) as draw:
         draw.arc((0, 0, 15, 7), -10, 200, fill="white", width=2)
 
@@ -25,7 +25,7 @@ def smile():
             device.contrast(intensity * 16)
             time.sleep(0.1)
 
-def sad():
+def smile():
     with canvas(device) as draw:
         draw.arc((0, 2, 15, 9), 170, 9, fill="white", width=2)
         print(device.bounding_box)
