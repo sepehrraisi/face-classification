@@ -132,7 +132,7 @@ while True:
                 if emotion_label_arg == 3:
                     counter = 0
                     smile()
-                    playsound('ghashang.mp3')
+                    playsound('ghashang.wav')
                     print("Khandidi")
                     happy = True
                     time.sleep(3)
@@ -142,7 +142,7 @@ while True:
                     print("bekhand")
                     counter = 0
                     sad()
-                    playsound('bekhand.mp3')
+                    playsound('bekhand.wav')
 
             # cv2.imshow("Emotion Recognition", frame)
             # k = cv2.waitKey(1) & 0xFF
