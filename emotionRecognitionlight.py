@@ -135,10 +135,10 @@ while True:
                     playsound('ghashang.wav')
                     print("Khandidi")
                     happy = True
-                    time.sleep(3)
+                    time.sleep(1)
             if emotion_label_arg != 3:
                 counter += 1
-                if counter >= 5:
+                if counter >= 3:
                     print("bekhand")
                     counter = 0
                     sad()
