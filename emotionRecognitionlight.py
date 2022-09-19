@@ -140,6 +140,7 @@ while True:
                 counter += 1
                 if counter >= 3:
                     print("bekhand")
+                    happy = True
                     counter = 0
                     sad()
                     playsound('bekhand.wav')
